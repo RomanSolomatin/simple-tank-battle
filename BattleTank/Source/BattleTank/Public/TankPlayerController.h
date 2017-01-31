@@ -16,4 +16,8 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 	
 public:
 	ATank* GetControlledTank() const;
+
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
 };
