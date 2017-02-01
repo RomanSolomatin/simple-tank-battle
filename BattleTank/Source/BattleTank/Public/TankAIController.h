@@ -13,9 +13,12 @@ UCLASS()
 class BATTLETANK_API ATankAIController : public AAIController
 {
 	GENERATED_BODY()
-public:
+private:
 	ATank* GetControlledTank() const;
+	ATank* GetPlayerTank() const;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+
 };
