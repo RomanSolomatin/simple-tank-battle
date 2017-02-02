@@ -19,5 +19,11 @@ public:
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	
+	// Called in every tick 
+	virtual void Tick(float DeltaTime) override;
 
+private:
+	void AimTowardsCrossHair();
+	bool GetSightRayHitLocation(FVector& HitLocation) const;
 };
