@@ -24,6 +24,12 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
+	UPROPERTY(EditAnywhere)
+	float CrossHairXLocation = 0.5;
+
+	UPROPERTY(EditAnywhere)
+	float CrossHairYLocation = 0.3333;
+
 	void AimTowardsCrossHair();
 	bool GetSightRayHitLocation(FVector& HitLocation) const;
 };
