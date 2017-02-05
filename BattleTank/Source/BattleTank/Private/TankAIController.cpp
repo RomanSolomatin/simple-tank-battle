@@ -31,3 +31,17 @@ ATank* ATankAIController::GetPlayerTank() const
 	if (!TankPlayerController) { return nullptr; }
 	return TankPlayerController->GetControlledTank();
 }
+
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	ATank* MyTank = GetControlledTank();
+	ATank* PlayerTank = GetPlayerTank();
+
+	FVector PlayerTankLocation = PlayerTank->GetActorLocation();
+	if (MyTank && PlayerTank)
+	{
+		MyTank->AimAt(PlayerTankLocation);
+	}
+}
+
