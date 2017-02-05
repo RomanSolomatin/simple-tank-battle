@@ -23,6 +23,7 @@ public:
 	// Called in every tick 
 	virtual void Tick(float DeltaTime) override;
 
+
 private:
 	UPROPERTY(EditAnywhere)
 	float CrossHairXLocation = 0.5;
