@@ -5,10 +5,12 @@
 #include "Components/ActorComponent.h"
 #include "TankAimingComponent.generated.h"
 
+// Forward declaration
 class UTankBarrel; 
 
 /**
-* 
+* Allow taank component to aim at a location
+* and delegate it to the barrel.
 */
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BATTLETANK_API UTankAimingComponent : public UActorComponent
