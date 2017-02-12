@@ -20,15 +20,21 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	if (!Barrel) { return; }
 	FVector OutLaunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile"));
-
-	// Calculate the launch velocity 
+	
+	// Suply default params to prevent Unreal bug
+	bool bFavorHighArc = false;
+	float CollisionRadius = 0.0;
+	float OverrideGravityZ = 0.0;
 	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity (
 		this,
 		OutLaunchVelocity,
 		StartLocation,
 		HitLocation,
 		LaunchSpeed,
-		ESuggestProjVelocityTraceOption::DoNotTrace
+		bFavorHighArc, 
+		CollisionRadius,
+		OverrideGravityZ, 
+		ESuggestProjVelocityTraceOption::DoNotTrace 
 	);
 	if (bHaveAimSolution)
 	{
