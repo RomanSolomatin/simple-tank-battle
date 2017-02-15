@@ -7,6 +7,7 @@
 
 // Forward declaration
 class UTankBarrel; 
+class UTankTurret;
 
 /**
 * Allow taank component to aim at a location
@@ -19,13 +20,14 @@ class BATTLETANK_API UTankAimingComponent : public UActorComponent
 
 public:	
 	void AimAt(FVector HitLocation, float LaunchSpeed);
-
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-
+	void SetBarrelAndTurretReference(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet);
+	
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 
 private:
 	UTankBarrel* Barrel = nullptr;
-	void MoveBarrelTowards(FVector AimDirection);
+	UTankTurret* Turret = nullptr;
+
+	void MoveTowards(FVector AimDirection);
 };
